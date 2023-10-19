@@ -1,0 +1,29 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A simple radial chart with embedded data.",
+    "data": {"url": "Countries.csv"
+    },
+    "width": 300,
+    "height":300,
+    "transform": [
+      {"filter": "datum.Year == 2022" },
+      {
+        "filter": {"field": "Country Code", "oneOf": ["AUS", "IND", "JPN", "GBR", "CAN", "DEU", "FRA"]}
+      }
+    ],
+    "layer": [{
+      "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
+    },{
+      "mark": {"type": "text", "radiusOffset": 10},
+      "encoding": {
+        "text": {"field": "Country Name", "type": "nominal"},
+        "color": {"value": "black"}
+      }
+    }],
+    "encoding": {
+      "theta": {"field": "GDP", "type": "quantitative", "stack": true},
+      "radius": {"field": "GDP", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
+      "color": {"field": "GDP", "type": "nominal", "legend": null}
+    }
+  }
+  
