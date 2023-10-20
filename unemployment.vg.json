@@ -1,0 +1,21 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Unemployment Rate"},
+    "data": {"url": "Countries.csv"
+    },
+    "width": 300,
+    "height":250,
+      "transform": [
+      {"filter": "datum.Year == 2022" },
+      {
+        "filter": {"field": "Country Code", "oneOf": ["MAC", "SGP", "HKG", "BHR", "MDV", "PSE", "LBN"]}
+      }
+    ],
+    "mark": "bar",
+    "encoding": {
+        "x" : {"field": "Unemployment", "type": "quantitative"},
+        "y" : {"field": "Country Name", "type": "nominal" , "sort": "-x"},
+        "color": {"value" : "red"}
+    }
+  
+  }

@@ -3,8 +3,8 @@
     "description": "A simple radial chart with embedded data.",
     "data": {"url": "Countries.csv"
     },
-    "width": 300,
-    "height":300,
+    "width": 440,
+    "height":350,
     "transform": [
       {"filter": "datum.Year == 2022" },
       {
@@ -20,7 +20,7 @@
         "color": {"value": "black"}
       }
     }],
-    "encoding": {
+    "encoding": { 
       "theta": {"field": "GDP", "type": "quantitative", "stack": true},
       "radius": {"field": "GDP", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
       "color": {"field": "GDP", "type": "nominal", "legend": null}

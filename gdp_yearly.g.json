@@ -1,0 +1,26 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "GDP of countries year to year"},
+    "data": {"url": "Countries.csv"
+    },
+    "mark":{"type": "line", "point": true},
+    "width": 800, 
+    "height": 600,
+    "transform": [
+      {
+        "filter": {"timeUnit": "year", "field": "Year", "range": [2000, 2020]}
+      },
+      {
+        "calculate": "datum.GDP / 1e9",
+        "as": "GDP in BN$"
+      },
+      {
+        "filter": {"field": "Country Code", "oneOf": ["AUS", "IND", "JPN", "GBR", "CAN", "RUS", "DEU", "FRA"]}
+      }
+    ],
+    "encoding": {
+        "x" : {"timeUnit": "year", "field": "Year", "type": "quantitative"},
+        "y": {"aggregate":"mean", "field": "GDP in BN$", "type": "quantitative" },
+        "color": {"field": "Country Code", "type": "nominal"}
+    }
+  }
