@@ -1,0 +1,22 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Highest Population"},
+    "data": {"url": "Countries.csv"
+    },
+    "width": 320,
+    "height":250,
+      "transform": [
+      {"filter": "datum.Year == 2000" },
+      {
+        "filter": {"field": "Country Code", "oneOf": ["CHN", "IND", "USA", "RUS", "PAK", "IDN"]}
+      }
+    ],
+    "mark": "bar",
+    "encoding": {
+        "x" : {"field": "Population", "type": "quantitative"},
+        "y" : {"field": "Country Name", "type": "nominal" , "sort": "-x"},
+        "color": {"value" : "red"}
+    }
+  
+  }

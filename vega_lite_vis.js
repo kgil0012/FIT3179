@@ -18,4 +18,16 @@ var vg_5= "gdp_multiple.vg.json";
 vegaEmbed("#correlation", vg_5).then(function(result) {
 }) . catch(console.error);
 
+var vg_6= "population.vg.json"; 
+vegaEmbed("#line_population", vg_6  ).then(function(result) {
+}) . catch(console.error);
+
+var vg_7= "population_2000.vg.json"; 
+vegaEmbed("#pop2000_bar", vg_7).then(function(result) {
+}) . catch(console.error);
+
+var vg8_= "population_2022.vg.json"; 
+vegaEmbed("#pop2022_bar", vg_8).then(function(result) {
+}) . catch(console.error);
+
 

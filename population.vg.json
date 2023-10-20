@@ -1,0 +1,26 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Most populated countries"},
+    "data": {"url": "Countries.csv"
+    },
+    "mark":{"type": "line", "point": true},
+    "width":700, 
+    "height": 300,
+    "transform": [
+      {
+        "filter": {"timeUnit": "year", "field": "Year", "range": [2000, 2020]}
+      },
+      {
+        "calculate": "datum.Population / 1e9",
+        "as": "Population in BN"
+      },
+      {
+        "filter": {"field": "Country Code", "oneOf": ["CHN", "IND", "USA", "IDN", "PAK" ]}
+      }
+    ],
+    "encoding": {
+        "x" : {"timeUnit": "year", "field": "Year", "type": "quantitative"},
+        "y": {"aggregate":"mean", "field": "Population in BN", "type": "quantitative" },
+        "color": {"field": "Country Code", "type": "nominal"}
+    }
+  }
