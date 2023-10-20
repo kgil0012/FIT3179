@@ -6,6 +6,7 @@
 html, body {
     background-color: skyblue;
     font-family: 'Acme', sans-serif;
+    background-image: linear-gradient(to bottom,skyblue, rgb(0, 9, 44));
 }
 
 .title{
@@ -15,7 +16,7 @@ html, body {
 }
 .pure-u-1 img {
     width: 100vw;
-    height: 70vh;
+    height: 50vh;
 }
 
 .pure-u-1-3 {

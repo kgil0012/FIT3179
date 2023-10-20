@@ -30,4 +30,7 @@ var vg8_= "population_2022.vg.json";
 vegaEmbed("#pop2022_bar", vg_8).then(function(result) {
 }) . catch(console.error);
 
+var vg9_= "poppop.vg.json"; 
+vegaEmbed("#poppop_bar", vg_9).then(function(result) {
+}) . catch(console.error);
 
