@@ -13,7 +13,13 @@ html, body {
     text-align: center;
     font-family: 'Acme', sans-serif;
     font-size: 28px;
+    text-shadow: 8px 8px 5px #bd3d84;
 }
+
+.title h1 { 
+    color: rgb(69, 246, 255);
+}
+
 .pure-u-1 img {
     width: 100vw;
     height: 50vh;
@@ -25,17 +31,23 @@ html, body {
 
 .pure-g {
     text-align: center;
+    color: rgb(255, 120, 221);
 }
 
-.pure-g barchart_multi {
-
-
+.pure-g h1 {
+    color: rgb(69, 246, 255);
+    text-shadow: 8px 8px 5px #bd3d84;
+}
+.pure-g h3 {
+    color: rgb(69, 246, 255);
+    text-shadow: 3px 3px 3px #bd3d84;
 }
 
-.kida {
-    text-align: center;
-    margin: 0 auto;
+.pure-g h2 {
+    color: rgb(69, 246, 255);
+    text-shadow: 3px 3px 3px #bd3d84;
 }
+
 
 .pure-u-1-1 img {
     width: 100vw;

@@ -9,7 +9,7 @@
       "transform": [
       {"filter": "datum.Year == 2000" },
       {
-        "filter": {"field": "Country Code", "oneOf": ["CHN", "IND", "USA", "RUS", "PAK", "IDN"]}
+        "filter": {"field": "Code", "oneOf": ["CHN", "IND", "USA", "RUS", "PAK", "IDN"]}
       }
     ],
     "mark": "bar",

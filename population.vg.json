@@ -1,26 +1,55 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "Most populated countries"},
-    "data": {"url": "Countries.csv"
-    },
-    "mark":{"type": "line", "point": true},
-    "width":400, 
-    "height": 280,
-    "transform": [
-      {
-        "filter": {"timeUnit": "year", "field": "Year", "range": [2000, 2020]}
-      },
-      {
-        "calculate": "datum.Population / 1e9",
-        "as": "Population in BN"
-      },
-      {
-        "filter": {"field": "Country Code", "oneOf": ["CHN", "IND", "USA", "IDN", "PAK" ]}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "Most populated countries"},
+  "data": {"url": "Countries.csv"
+  },
+  "params": [
+    {"name": "Country",
+      "bind":{
+        "input": "select",
+        "options": [
+          null,
+          "CHN",
+          "IND",
+          "USA",
+          "IDN",
+          "PAK"
+        ],
+        "labels": [
+         "Show All",
+         "China",
+          "India",
+          "USA",
+          "Indonesia",
+          "Pakisatn"
+        ],
+        "name": "Country"
       }
-    ],
-    "encoding": {
-        "x" : {"timeUnit": "year", "field": "Year", "type": "quantitative"},
-        "y": {"aggregate":"mean", "field": "Population in BN", "type": "quantitative" },
-        "color": {"field": "Country Code", "type": "nominal"}
     }
+  ],
+  "mark":{"type": "line", "point": true},
+  "width":400, 
+  "height": 280,
+  "transform": [
+    {
+      "filter": {"timeUnit": "year", "field": "Year", "range": [2000, 2022]}
+    },
+    {  "filter"  :   "Country == null || datum.Code == Country"  }, 
+    {
+      "calculate": "datum.Population / 1e9",
+      "as": "Population in BN"
+    },
+    {
+      "filter": {"field": "Code", "oneOf": ["CHN", "IND", "USA", "IDN", "PAK" ]}
+    }
+  ],
+  "encoding": {
+      "x" : {"timeUnit": "year", "field": "Year", "type": "quantitative"},
+      "y": {"aggregate":"mean", "field": "Population in BN", "type": "quantitative" },
+      "color": {"field": "Code", "type": "nominal"},
+      "tooltip"  : [ {"field": "Country Name",   
+      "type": "nominal"  },    
+      {"field":"Population in BN",
+      "type":"quantitative"} ]
   }
+}

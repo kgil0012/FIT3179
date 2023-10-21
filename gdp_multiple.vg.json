@@ -4,10 +4,41 @@
       "row": ["GDP", "GDP Per Capita",  "Inflation Rate"],
       "column": ["Education Expenditure", "Health Expenditure", "Unemployment"]
     },
+    "params": [
+      {"name": "Country",
+        "bind":{
+          "input": "select",
+          "options": [
+            null,
+            "JPN",
+            "DEU",
+            "GBR",
+            "FRA",
+            "IND",
+            "RUS",
+            "CAN",
+            "AUS"
+          ],
+          "labels": [
+           "Show All",
+           "Japan",
+           "Germany",
+           "United Kingdom",
+           "France",
+           "India",
+           "Russian Federation",
+           "Canada",
+           "Australia"
+          ],
+          "name": "Country"
+        }
+      }
+    ],
     "transform": [
       {
-        "filter": {"field": "Country Code", "oneOf": ["AUS", "JPN", "GBR", "CAN", "RUS", "DEU", "FRA", "IND"]}
-      }
+        "filter": {"field": "Code", "oneOf": ["AUS", "JPN", "GBR", "CAN", "RUS", "DEU", "FRA", "IND"]}
+      },
+      {  "filter"  :   "Country == null || datum.Code == Country"  }
     ],
     "spec": {
       "data": {"url": "Countries.csv"},

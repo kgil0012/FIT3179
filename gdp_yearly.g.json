@@ -15,12 +15,12 @@
         "as": "GDP in BN$"
       },
       {
-        "filter": {"field": "Country Code", "oneOf": ["AUS", "IND", "JPN", "GBR", "CAN", "RUS", "DEU", "FRA"]}
+        "filter": {"field": "Code", "oneOf": ["AUS", "IND", "JPN", "GBR", "CAN", "RUS", "DEU", "FRA"]}
       }
     ],
     "encoding": {
         "x" : {"timeUnit": "year", "field": "Year", "type": "quantitative"},
         "y": {"aggregate":"mean", "field": "GDP in BN$", "type": "quantitative" },
-        "color": {"field": "Country Code", "type": "nominal"}
+        "color": {"field": "Code", "type": "nominal"}
     }
   }

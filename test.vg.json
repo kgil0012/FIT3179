@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "GDP of countries year to year"},
+    "title": {"text": "Most populated countries"},
     "data": {"url": "Countries.csv"
     },
     "params": [
@@ -9,53 +9,47 @@
           "input": "select",
           "options": [
             null,
-            "JPN",
-            "DEU",
-            "GBR",
-            "FRA",
+            "CHN",
             "IND",
-            "RUS",
-            "CAN",
-            "AUS"
+            "USA",
+            "IDN",
+            "PAK"
           ],
           "labels": [
            "Show All",
-           "Japan",
-           "Germany",
-           "United Kingdom",
-           "France",
-           "India",
-           "Russian Federation",
-           "Canada",
-           "Australia"
+           "China",
+            "India",
+            "USA",
+            "Indonesia",
+            "Pakisatn"
           ],
           "name": "Country"
         }
       }
     ],
     "mark":{"type": "line", "point": true},
-    "width": 300, 
-    "height": 300,
+    "width":400, 
+    "height": 280,
     "transform": [
       {
-        "filter": {"timeUnit": "year", "field": "Year", "range": [2000, 2020]}
+        "filter": {"timeUnit": "year", "field": "Year", "range": [2000, 2022]}
       },
       {  "filter"  :   "Country == null || datum.Code == Country"  }, 
       {
-        "calculate": "datum.GDP / 1e9",
-        "as": "GDP in BN$"
+        "calculate": "datum.Population / 1e9",
+        "as": "Population in BN"
       },
       {
-        "filter": {"field": "Code", "oneOf": ["AUS", "IND", "JPN", "GBR", "CAN", "RUS", "DEU", "FRA"]}
+        "filter": {"field": "Code", "oneOf": ["CHN", "IND", "USA", "IDN", "PAK" ]}
       }
     ],
     "encoding": {
         "x" : {"timeUnit": "year", "field": "Year", "type": "quantitative"},
-        "y": {"aggregate":"mean", "field": "GDP in BN$", "type": "quantitative" },
+        "y": {"aggregate":"mean", "field": "Population in BN", "type": "quantitative" },
         "color": {"field": "Code", "type": "nominal"},
         "tooltip"  : [ {"field": "Country Name",   
         "type": "nominal"  },    
-        {"field":"GDP in BN$",
+        {"field":"Population in BN",
         "type":"quantitative"} ]
     }
   }

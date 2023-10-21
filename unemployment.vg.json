@@ -8,14 +8,21 @@
       "transform": [
       {"filter": "datum.Year == 2022" },
       {
-        "filter": {"field": "Country Code", "oneOf": ["MAC", "SGP", "HKG", "BHR", "MDV", "PSE", "LBN"]}
+        "filter": {"field": "Code", "oneOf": ["MAC", "SGP", "HKG", "BHR", "MDV", "PSE", "LBN"]}
       }
     ],
     "mark": "bar",
     "encoding": {
         "x" : {"field": "Unemployment", "type": "quantitative"},
         "y" : {"field": "Country Name", "type": "nominal" , "sort": "-x"},
-        "color": {"value" : "red"}
+        "color": {"value" : "skyblue"},
+          "tooltip"  : [ {"field": "Country Name",   
+          "type": "nominal"  },    
+          {"field":"Unemployment",
+          "type":"quantitative"},
+          {"field":"Year",
+          "type":"quantitative"}   ]
+  
     }
   
   }

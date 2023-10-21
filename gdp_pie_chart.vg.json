@@ -8,7 +8,11 @@
     "transform": [
       {"filter": "datum.Year == 2022" },
       {
-        "filter": {"field": "Country Code", "oneOf": ["AUS", "IND", "JPN", "GBR", "CAN", "DEU", "FRA"]}
+        "calculate": "datum.GDP / 1e9",
+        "as": "GDP in BN$"
+      },
+      {
+        "filter": {"field": "Code", "oneOf": ["AUS", "IND", "JPN", "CAN", "DEU", "FRA"]}
       }
     ],
     "layer": [{
@@ -23,7 +27,12 @@
     "encoding": { 
       "theta": {"field": "GDP", "type": "quantitative", "stack": true},
       "radius": {"field": "GDP", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
-      "color": {"field": "GDP", "type": "nominal", "legend": null}
+      "color": {"field": "GDP", "type": "nominal", "legend": null},
+      "tooltip"  : [ {"field": "Country Name",   
+      "type": "nominal"  },    
+      {"field":"GDP in BN$",
+      "type":"quantitative"} ]
+      
     }
   }
   
