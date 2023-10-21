@@ -74,6 +74,8 @@
           "type": "quantitative",
           "axis": {"minExtent": 30}
         },
+        "tooltip"  : [ {"field": "Country Name",   
+          "type": "nominal"  } ],
         "color": {
           "condition": {
             "param": "brush",
